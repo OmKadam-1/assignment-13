@@ -10,4 +10,5 @@ for(let i=0; i<quote.length;i++){
     <div class ="quote-card">
         <h2>Be ${quote[i]}</h2>
     </div>
+    ;
 }
