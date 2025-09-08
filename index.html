@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./script.js"></script>
     <style>
         body {
             margin: 0;
@@ -30,7 +29,8 @@
         }
 
         #quotes {
-            display: flex;
+            display: grid;
+            /* ✅ changed to grid for responsiveness */
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
         }
@@ -54,7 +54,6 @@
             color: #333;
         }
 
-
         @media (max-width: 600px) {
             .heading {
                 font-size: 1.5rem;
@@ -72,23 +71,26 @@
         <h1 class="heading">Some Motivational Quotes</h1>
         <div class="quotes" id="quotes"></div>
     </div>
+
     <script>
-        const quote = [
-            "Strong",
-            "Calm",
-            "Motivated",
-            "Ready",
-        ];
+        const quotes = ["Strong", "Calm", "Motivated", "Ready"];
+        const emojis = ["💪", "😊", "🔥", "🚀"]; 
 
         const list = document.getElementById("quotes");
+        let index = 0;
 
-        for (let i = 0; i < quote.length; i++) {
-            list.innerHTML = list.innerHTML +
-                <div class="quote-card">
-                    <h2>Be ${quote[i]}</h2>
-                </div>
-                ;
+        function showQuote() {
+            list.innerHTML = `
+        <div class="quote-card">
+            <h2>Be ${quotes[index]} ${emojis[index]}</h2>
+        </div>
+    `;
+            index = (index + 1) % quotes.length; 
         }
+
+        showQuote();
+        setInterval(showQuote, 1000);
+
     </script>
 </body>
 
