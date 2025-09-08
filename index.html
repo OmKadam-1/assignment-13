@@ -1,76 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <style>
         body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #74ebd5, #acb6e5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-.main {
-    text-align: center;
-    width: 90%;
-    max-width: 800px;
-}
+        .main {
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
 
-.heading {
-    color: #222;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
+        .heading {
+            color: #222;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
 
-#quotes {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
+        #quotes {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
 
-.quote-card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .quote-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.quote-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
+        .quote-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
 
-.quote-card h2 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #333;
-}
+        .quote-card h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
 
 
-@media (max-width: 600px) {
-    .heading {
-        font-size: 1.5rem;
-    }
+        @media (max-width: 600px) {
+            .heading {
+                font-size: 1.5rem;
+            }
 
-    .quote-card h2 {
-        font-size: 1.2rem;
-    }
-}
-
+            .quote-card h2 {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="main">
         <h1 class="heading">Some Motivational Quotes</h1>
         <div class="quotes" id="quotes"></div>
     </div>
-    
+    <script>
+        const quote = [
+            "Strong",
+            "Calm",
+            "Motivated",
+            "Ready",
+        ];
+
+        const list = document.getElementById("quotes");
+
+        for (let i = 0; i < quote.length; i++) {
+            list.innerHTML = list.innerHTML +
+                <div class="quote-card">
+                    <h2>Be ${quote[i]}</h2>
+                </div>
+                ;
+        }
+    </script>
 </body>
+
 </html>
