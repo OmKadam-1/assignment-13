@@ -2,95 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Foods</title>
     <style>
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #74ebd5, #acb6e5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .main {
-            text-align: center;
-            width: 90%;
-            max-width: 800px;
-        }
-
-        .heading {
-            color: #222;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-
-        #quotes {
-            display: grid;
-            
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .quote-card {
-            background: #fff;
-            border-radius: 15px;
+            background: #f9f9f9;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
-        .quote-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        #foods-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .quote-card h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            color: #333;
+        .food-card {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            transition: transform 0.2s ease-in-out;
         }
 
-        @media (max-width: 600px) {
-            .heading {
-                font-size: 1.5rem;
-            }
-
-            .quote-card h2 {
-                font-size: 1.2rem;
-            }
+        .food-card:hover {
+            transform: scale(1.05);
+            background: #ffefd5;
         }
     </style>
 </head>
 
 <body>
-    <div class="main">
-        <h1 class="heading">Favourite Food Items</h1>
-        <div class="quotes" id="quotes"></div>
-    </div>
+    <h1>🍽️ My Favorite Foods</h1>
+    <div id="foods-list"></div>
 
     <script>
-        const quotes = ["Pavbhaji", "Paneer", "Shevbhaji", "Vadapav"];
-        const emojis = ["🔥", "😊", "🔥", "🚀"];
-
-        const list = document.getElementById("quotes");
-        let index = 0;
-
-        function showQuote() {
-            list.innerHTML = `
-        <div class="quote-card">
-            <h2>I love ${quotes[index]} ${emojis[index]}</h2>
-        </div>
-    `;
-            index = (index + 1) % quotes.length;
+        function getRandomEmogi() {
+            const emojiList = ["🍕", "🍔", "🍟", "🍩", "🍫", "🥗", "🍣", "🍦"];
+            const min = 0;
+            const max = emojiList.length;
+            const randomEmojiIndex = Math.floor(Math.random() * (max - min) + min);
+            return emojiList[randomEmojiIndex];
         }
 
-        showQuote();
-        setInterval(showQuote, 1000);
+        const foods = [
+            "Pizza",
+            "Burger",
+            "French Fries",
+            "Donut",
+            "Chocolate",
+            "Ice Cream",
+        ];
 
+        const foodsList = document.getElementById("foods-list");
+
+        for (let i = 0; i < foods.length; i++) {
+            const emoji = getRandomEmogi();
+            foodsList.innerHTML += `<div class="food-card"> I love ${foods[i]} ${emoji}</div>`;
+        }
     </script>
 </body>
 
