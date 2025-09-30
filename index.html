@@ -30,7 +30,7 @@
 
         #quotes {
             display: grid;
-            /* ✅ changed to grid for responsiveness */
+            
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
         }
@@ -73,8 +73,8 @@
     </div>
 
     <script>
-        const quotes = ["Strong", "Calm", "Motivated", "Ready"];
-        const emojis = ["💪", "😊", "🔥", "🚀"]; 
+        const quotes = ["Pavbhaji", "Paneer", "Shevbhaji", "Vadapav"];
+        const emojis = ["🔥", "😊", "🔥", "🚀"];
 
         const list = document.getElementById("quotes");
         let index = 0;
@@ -82,10 +82,10 @@
         function showQuote() {
             list.innerHTML = `
         <div class="quote-card">
-            <h2>Be ${quotes[index]} ${emojis[index]}</h2>
+            <h2>I love ${quotes[index]} ${emojis[index]}</h2>
         </div>
     `;
-            index = (index + 1) % quotes.length; 
+            index = (index + 1) % quotes.length;
         }
 
         showQuote();
